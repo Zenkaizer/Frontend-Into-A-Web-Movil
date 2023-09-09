@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>{{actionTitle}} Persona</h1>
+<div mat-dialog-content>
+    <!--Formulario-->
+    <form [formGroup]="personForm">
+
+        <mat-grid-list cols="1" rowHeight="80px">
+            <!--RUT-->
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Rol Único Tributario</mat-label>
+                    <input matInput formControlName="rut" placeholder="12345678-K">
+                </mat-form-field>
+            </mat-grid-tile>
+            <!--Nombres-->
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre(s)</mat-label>
+                    <input matInput formControlName="firstName" placeholder="Juan Gabriel">
+                </mat-form-field>
+            </mat-grid-tile>
+            <!--Apellidos-->
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Apellido(s)</mat-label>
+                    <input matInput formControlName="lastName" placeholder="García Marquez">
+                </mat-form-field>
+            </mat-grid-tile>
+            <!--Teléfono-->
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput formControlName="phone" placeholder="912345678">
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </form>
+
+</div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+    <button mat-raised-button color="primary" (click)="addEditPerson()"
+            [disabled] = "personForm.invalid">{{actionButton}}</button>
+</div>
